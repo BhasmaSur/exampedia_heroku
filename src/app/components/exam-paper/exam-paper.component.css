@@ -1,0 +1,52 @@
+.heading-box{
+    width:100%;
+    height: fit-content;
+    background-color: white;
+    text-align: center;
+    padding:0.5rem;
+}
+.title-box{
+    margin: 0%;
+    padding: 0%;
+}
+.title{
+    font-size: 2rem;
+}
+.time-green{
+    font-size: 2rem;
+    color: green;
+}
+.question-circles{
+    background-color: white;
+}
+.circle-btn{
+    margin: 0.2rem;
+    border-radius: 50%;
+    background-color: yellow;
+}
+.circle-btn-submitted{
+    background-color: greenyellow;
+    margin: 0.2rem;
+    border-radius: 50%;
+}
+.question-statement{
+    margin: 2rem;
+    margin-bottom: 1rem;
+}
+/*-------------------------- options-select-all ----------------------------------------*/
+.select-all-checkbox{
+    margin-left: 2rem;
+}
+.select-all-label{
+    margin-left: 1rem;
+}
+/*------------------------ question-common-btns ---------------------------------------*/
+.question-common-btns{
+    margin: 2rem;
+}
+.essay{
+    margin-left:2rem;
+}
+.essay-input{
+    width: 95%;
+}

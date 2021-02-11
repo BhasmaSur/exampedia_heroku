@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-6 col-md-6 item-box p-0 m-0 text-center" *ngFor="let item of items">
+    <div class="thumbnail">
+      <img class="img_attr" src="https://media.publit.io/file/700/displayPic-T.jpg" alt=""
+        (click)="viewCoachingDetailClicked(item.id)">
+      <div class="caption">
+        <h3>{{item.coachingName}}</h3>
+        <p *ngIf="!item.coachingCourses.length">Courses :&nbsp;<label>No Courses</label></p>
+        <p *ngIf="item.coachingCourses.length">Courses :&nbsp;<label
+            *ngFor="let course of item.coachingCourses;let i = index">{{formatCourses(item,course,i)}}</label></p>
+        <p><a class="btn btn-primary" (click)="subcribeButtonClicked(item.coachingId)" role="button">{{actionDue}}</a> <a
+           class="btn btn-default" role="button">{{statusSubscription}}</a></p>
+      </div>
+    </div>
+  </div>
+</div>

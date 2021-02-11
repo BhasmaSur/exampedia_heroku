@@ -1,0 +1,27 @@
+<app-coaching-navbar></app-coaching-navbar>
+<div class="container-fluid no-gutter" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col-lg-8 col-md-9">
+            <h2 class="pdf-heading">PDF Selected : {{pdfToPlay.pdfId+"."+pdfToPlay.pdfName}}</h2>
+            <div class="pdf-container">
+                <pdf-viewer [src]="pdfSrc" [original-size]="false"></pdf-viewer>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-3">
+            <div class="menu-container">
+                <div class="menu-heading">
+                    <label>Pdf Lists</label>
+                </div>
+                <div class="menu-items">
+                    <div class="item-button" (click)="pdfSelected(pdf)" *ngFor="let pdf of pdfs">
+                        <div class="thumbnail">
+                            <img class="img_attr" src="../../../assets/images/pdf.jpg" alt="">
+                            {{pdf.pdfId+" ."+pdf.pdfName}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-page-loading *ngIf="isLoading"></app-page-loading>

@@ -1,0 +1,29 @@
+.no-gutter{
+    margin: 0%;
+    padding: 0%;
+}
+.menu-container{
+    margin-top: 2rem;
+    border: .2rem black solid;
+}
+.menu-heading{
+    text-align: center;
+    background-color: cornflowerblue;
+}
+.player-box{
+    margin: 2rem;
+}
+.item-button{
+    cursor: pointer;
+    margin: .1rem;
+}
+.img_attr{
+    height: 3rem;
+    width: 6rem;
+}
+.thumbnail{ 
+    margin: 1rem;
+}
+.description-box{
+    margin-left: 2rem;
+}

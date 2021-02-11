@@ -1,0 +1,20 @@
+<app-coaching-navbar></app-coaching-navbar>
+<div class="container-box">
+    <div class="data-box">
+        <div class="exam-heading">
+            <h1>{{examInFocus.examName}}</h1>
+        </div>
+        <div class="exam-details">
+            <p>{{examInFocus.examDescription}}</p>
+        </div>
+        <div class="exam-details">
+            <p>{{"Time Limit : "+examInFocus.examTime}}</p>
+        </div>
+        <div class="exam-details">
+            <p>{{"Max marks : "+examInFocus.examMaxMarks}}</p>
+        </div>
+        <div class="start-btn">
+            <button (click)="startTheExam()" class="btn">Start Exam</button>
+        </div>
+    </div>
+</div>

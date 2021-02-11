@@ -1,0 +1,111 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="heading-box">
+      <div class="title-box">
+        <label class="title">Exam Name</label>
+      </div>
+      <div>
+        <label class="time-green">
+          <countdown  #cd [config]="examTime" (event)="examOver($event)"> 
+          </countdown></label>
+      </div>
+      <div class="question-circles">
+        <button class="circle-btn" *ngFor="let question of questions;let i=index" (click)="setCircleSelectedQuestion(i)">
+          {{i+1}}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="question-box" *ngIf="!isLoading">
+  <form [formGroup]="questionForm">
+    <div class="question-statement">
+      <label>{{"Question : "+focusedQuestion.statement}}</label>
+      <label class="float-right">{{focusedQuestion.marks}}</label>
+    </div>
+
+    <!-----------------------------MCQ--------------------------------------------------->
+    <div class="options-select-all" *ngIf="isMCQ">
+      <div>
+        <input class="select-all-checkbox" id="A" type="radio" value="A" name="options" formControlName="options"
+          (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_A}}</label> 
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="B" type="radio" value="B" name="options" formControlName="options"
+        (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_B}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="C" type="radio" value="C" name="options" formControlName="options"
+        (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_C}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="D" type="radio" value="D" name="options" formControlName="options"
+        (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_D}}</label>
+      </div>
+    </div>
+<!-----------------------------true false--------------------------------------------------->
+    <div class="options-true-false" *ngIf="isTrueFalse">
+      <div>
+        <input class="select-all-checkbox" id="true" type="radio" value="TRUE" name="truefalse" formControlName="truefalse"
+        (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_A}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="false" type="radio" value="FALSE" name="truefalse" formControlName="truefalse"
+        (change)="changeMCQAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_B}}</label>
+      </div>
+    </div>
+<!----------------------------- Essay --------------------------------------------------->
+    <div class="essay" *ngIf="isEssay">
+      <div>
+        <div class="essay-label">
+          <label>Answer :</label>
+        </div>
+        <textarea class="essay-input"id="true" type="text" name="essay" formControlName="essay"
+          (change)="changeEssayAnswer($event)"></textarea>
+      </div>
+    </div>
+<!----------------------------- Select All --------------------------------------------------->
+    <div class="options-select-all" *ngIf="isSelectAll">
+      <div>
+        <input class="select-all-checkbox" id="A" type="checkbox" value="0" name="option_A" formControlName="option_A"
+          (change)="changeCheckBoxAnswer($event)">
+          <label class="select-all-label">{{focusedQuestion.option_A}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="B" type="checkbox" value="1" name="option_B" formControlName="option_B"
+          (change)="changeCheckBoxAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_B}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="C" type="checkbox" value="2" name="option_C" formControlName="option_C"
+        (change)="changeCheckBoxAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_C}}</label>
+      </div>
+      <div>
+        <input class="select-all-checkbox" id="D" type="checkbox" value="3" name="option_D" formControlName="option_D"
+          (change)="changeCheckBoxAnswer($event)">
+        <label class="select-all-label">{{focusedQuestion.option_D}}</label>
+      </div>
+    </div>
+    
+    <div class="question-common-btns">
+      <button class="btn btn-success btn-sm float-left" (click)="saveAnswerToTheQuestion()" [disabled]="!questionForm.valid">Submit</button>
+      <button class="btn btn-success btn-sm float-right" (click)="showNextQuestion()"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+      <button class="btn btn-success btn-sm float-right" (click)="showPreviousQuestion()"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    </div>
+
+  </form>
+</div>
+<app-page-loading *ngIf="isLoading"></app-page-loading>
+
+
+
+
+
+

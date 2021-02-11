@@ -1,0 +1,11 @@
+.thumbnail{
+    margin: 1rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+.thumbnail .img_attr{
+    border: 1px solid black;
+    border-radius: 1rem;
+    height: 3rem;
+    width: 100%;
+}

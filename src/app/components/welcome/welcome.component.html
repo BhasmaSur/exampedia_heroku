@@ -1,0 +1,115 @@
+<div class="html_div" *ngIf="!isLoading" #home>
+    <app-market-navbar [user]=strLoggedInUser [boolShowFilterInMenu]="boolShowFilterInMenu"
+        (openLoginOrProfilePage)="openLoginProfile()"
+        (goToView)="goToDivView(home,coachings,contact,$event)"
+        ></app-market-navbar>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+            <img src="../../../assets/images/success_bg.png" height="500">
+        </ng-template>
+        <ng-template carouselSlide>
+            <img src="../../../assets/images/success_bg.png" height="500">
+        </ng-template>
+        <ng-template carouselSlide>
+            <img src="../../../assets/images/success_bg.png" height="500">
+        </ng-template>
+    </owl-carousel-o>
+
+    <div class="body_div">
+        <div class="container" #coachings>
+            <div class="row">
+                <div class="col-lg-10">
+                    <h1 class="center-heading">Coachings</h1>
+                    <app-item-box [items]="coachingsToDisplayArray"
+                        (onCoachingSelectedToView)="navigateToCoachingSelected($event)"
+                        (onClickOnGoToCoachingsPage)="showCoachingPage($event)">
+                    </app-item-box>
+                </div>
+
+                <div class="col-lg-2 m-0 p-0" *ngIf="!boolShowFilterInMenu">
+                    <h1 class="center-heading">Filters</h1>
+
+                    <div class="searching-box">
+                        <div class="search-bar">
+                            <app-search-bar val="Search Course" (click)="showListOfCourses()"
+                            (onValueChanged)="filterCoursesForInput($event)"
+                            ></app-search-bar>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 offset-2">
+                                    <div class="available-courses" *ngIf="boolShowCourses">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" (click)="removeSearchList()">None</li>
+                                            <li class="list-group-item" (click)="addToFilteredCourseList(course)"
+                                                *ngFor="let course of listOfCoursesToDisplay">{{course}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-tags">
+                            <button class="btn btn-sm" type="button" *ngFor="let fCourse of filteredCourses"
+                                (click)="removeCourseTag(fCourse)">
+                                {{fCourse}}&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="searching-box">
+                        <div class="search-bar">
+                            <app-search-bar val="Search Exams" (click)="showListOfExams()"
+                            (onValueChanged)="filterExamsForInput($event)"
+                            ></app-search-bar>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 offset-2">
+                                    <div class="available-courses" *ngIf="boolShowExams">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" (click)="removeSearchList()">None</li>
+                                            <li class="list-group-item" (click)="addToFilteredExamsList(exam)"
+                                                *ngFor="let exam of listOfExamsToDisplay">{{exam}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-tags">
+                            <button class="btn btn-sm" type="button" *ngFor="let fExam of filteredExams"
+                                (click)="removeExamsTag(fExam)">
+                                {{fExam}}&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                   <!-- <div class="searching-box">
+                        <app-search-bar val="Search Subjects" (click)="showListOfSubjects()"
+                            (onValueChanged)="filterSubjectsForInput($event)"></app-search-bar>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12 offset-2">
+                                    <div class="available-courses" *ngIf="boolShowSubjects">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" (click)="addToFilteredSubjectsList(subject)"
+                                                *ngFor="let subject of listOfSubjectsToDisplay">{{subject}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="course-tags">
+                            <button class="btn btn-sm" type="button" *ngFor="let fSubject of filteredSubjects"
+                                (click)="removeSubjectsTag(fSubject)">
+                                {{fSubject}}&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+<div #contact></div>
+    <app-market-footer ></app-market-footer>
+</div>
+<app-page-loading *ngIf="isLoading"></app-page-loading>

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light navbar-expand-md bg-light justify-content-center">
+    <a href="/" class="navbar-brand mr-0">Exampedia</a>
+    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+        <ul class="navbar-nav mx-auto text-center">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">Home</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="//codeply.com">Courses</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Exams</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Success Stories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav flex-row justify-content-center flex-nowrap">
+            <li (click)="naviagetToLoginOrProfile()" class="nav-item"><a class="nav-link"><i class="fa fa-user-circle-o"></i>&nbsp;{{user}}</a></li>
+        </ul>
+    </div>
+</nav>

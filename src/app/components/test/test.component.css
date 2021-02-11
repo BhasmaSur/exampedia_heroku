@@ -1,0 +1,120 @@
+html,body{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ul{
+    list-style-type: none;
+}
+main .site-content{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: fit-content;
+}
+main .posts{
+    background-image: url('../../../assets/images/success_bg.png');
+    height: 100%;
+}
+/*==============================================  COACHINGS ===============================*/
+
+.course-container{
+    display: inline-block;
+    width: 100%;
+    justify-content: space-around;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+}
+
+.course-box{
+    max-width: 300px;
+    max-height: 500px;
+    min-width: 300px;
+    min-height: 300px;
+    margin :.5rem;
+    background-image: url('https://media.publit.io/file/700/displayPic-T.jpg');
+    background-size: cover;
+    box-shadow: 2px -px 24px 2px rgba(0,0,0,0.11);
+    border-radius: 2rem;
+    display: inline-block;
+}
+.course-image{
+    background-image: url('https://media.publit.io/file/700/displayPic-T.jpg');
+    background-size: cover;
+    max-width: 100%;
+    max-height: 100%;
+   
+}
+/*============================================== XXXX =====================================*/
+/*==============================================  SIDE BAR ===============================*/
+.site-content > .sidebar .category-list{
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.site-content > .sidebar .category-list .list-items{
+    background: paleturquoise;
+    padding: .4rem 1rem;
+    margin:.8rem 0;
+    border-radius: 3rem;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-content > .sidebar .category-list .list-items a{
+    color: black;
+
+}
+/*============================================== XXXX ===============================*/
+
+.img_attr{
+    height: 200px;
+    width: 300px;
+}
+
+.center-heading{
+    text-align: center;
+}
+.course-tags{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x:hidden;
+    margin-top: 1rem;
+    margin-left:3rem ;
+}
+.btn{
+    size: 1rem;
+    border-radius: .7rem;
+    background-color: cadetblue;
+    color:white;
+    margin: .1rem;
+}
+.available-courses{
+    padding-right: 0%;
+    width: 100%;
+}
+.available-courses .list-group{
+    width: 100%;
+    padding:0%;
+    margin: 0%;
+}
+@media only screen and (max-width:990px){
+    .img_attr{
+        height: 200px;
+        width:200px;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .img_attr{
+        height: 200px;
+        width:300px;
+    }
+}

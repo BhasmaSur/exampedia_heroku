@@ -1,0 +1,72 @@
+.html_div,.body_div{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ul{
+    list-style-type: none;
+}
+/*============================================== COACHINGS, FILTERS AND TAGS ===============================*/
+
+.img_attr{
+    height: 200px;
+    width: 300px;
+}
+
+.center-heading{
+    text-align: center;
+}
+.course-tags{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x:hidden;
+    margin-top: 1rem;
+    margin-left:3rem ;
+}
+.btn{
+    size: 1rem;
+    border-radius: .7rem;
+    background-color: cadetblue;
+    color:white;
+    margin: .1rem;
+}
+.available-courses{
+    padding-right: 0%;
+    width: 100%;
+}
+.available-courses .list-group{
+    width: 100%;
+    padding:0%;
+    margin: 0;
+}
+/*===================================== FOOTER ================================*/
+.no-dimensions{
+    margin: 0%;
+    padding: 0%;
+}
+/*======================================= MEDIA ================================*/
+@media only screen and (max-width:990px){
+    .img_attr{
+        height: 200px;
+        width:200px;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .img_attr{
+        height: 200px;
+        width:300px;
+    }
+}
+/*======================================= XXXXX ================================*/
+/*=================================== Search bar ===============================*/
+.search-bar{
+    margin-top: 5rem;
+}
+/*======================= XXXXXX ================================================*/

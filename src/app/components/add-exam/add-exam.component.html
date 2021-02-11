@@ -1,0 +1,78 @@
+<div class="form-box" *ngIf="!isLoading">
+    <form [formGroup]="form" class="normal-form">
+        <mat-grid-list cols="2" rowHeight="100px" colWidth="200px">
+            <mat-grid-tile colspan="2" rowspan="1">
+               <h1>Add Exam</h1>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Exam Name</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examName">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1" >
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Exam Tips</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examTips">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Exam Subjects</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examSubjects">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Exam Fees</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examFees">
+                </mat-form-field>
+                <!-- <div>
+                    <div *ngIf="form.controls['examFees'].errors?.required">
+                        Enter Somthing
+                    </div>
+                    <div *ngIf="form.controls['examFees'].errors?.notANumber">
+                        Value is wrong
+                    </div>
+                </div> -->
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Sold Separately</mat-label>
+                    <mat-select formControlName="examSoldSeparately" (selectionChange)="selectedOption($event.value)">
+                        <mat-option value="true">Yes</mat-option>
+                        <mat-option value="false">No</mat-option>
+                      </mat-select>               
+                     </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Exam Marks</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examMarks">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Exam Time</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="examTime">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+               <div class="upload-box">
+                <label for="file">Choose File</label>
+                <input type="file"
+                       id="file"
+                       (change)="handleFileInput($event)">
+               </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="submit-btn-box">
+                    <button  mat-raised-button color="accent" (click)="submitExamForm()">Submit</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div *ngIf="isLoading">
+
+</div>

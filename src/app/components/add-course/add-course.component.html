@@ -1,0 +1,59 @@
+<div class="form-box" *ngIf="!isLoading">
+    <form [formGroup]="form" class="normal-form">
+        <mat-grid-list cols="2" rowHeight="100px" colWidth="200px">
+            <mat-grid-tile colspan="2" rowspan="1">
+               <h1>Add Course</h1>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Course Name</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseName">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1" >
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Course Description</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseDescription">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Course Syllabus</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseSyllabus">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Course Subjects</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseSubjects">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Course Fees</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseFees">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="1" rowspan="1">
+                <mat-form-field appearance="outline">
+                    <mat-label>Course Hours</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseHours">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Course Professors</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="courseProfessors">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="submit-btn-box">
+                    <button  mat-raised-button color="accent" (click)="submitExamForm()">Submit</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div *ngIf="isLoading">
+
+</div>

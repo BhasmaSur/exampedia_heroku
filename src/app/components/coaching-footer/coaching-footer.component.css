@@ -1,0 +1,49 @@
+.footer-market{
+    background-color: black;
+    margin: 0%;
+    padding: 0%;
+}
+.footer-box{
+    padding: .5rem;
+    align-items: center;
+}
+.footer-box h2{
+    color:white;
+}
+.footer-box p{
+    color: #3f4954;
+}
+.form-element{
+    background: black;
+}
+.footer-box i{
+    background-color: white;
+    color: #3f4954;
+}
+.footer-box .form-element input{
+    padding: .5rem .7rem;
+    border:1px solid white;
+    background: transparent;
+    color: white;
+    font-size: 1rem;
+    width: 74%;
+}
+.footer-box .form-element span{
+    background: white;
+    padding: .5rem;
+    cursor: pointer;
+}
+.social i{
+    background-color: black;
+    color: white;
+   padding: .4rem;
+}
+.rights{
+    justify-content: center;
+}
+.rights h4{
+    color: #3f4954;
+}
+.rights a{
+    color: white;
+}

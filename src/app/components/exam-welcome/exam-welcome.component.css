@@ -1,0 +1,19 @@
+.container-box{
+    margin: 0%;
+    padding: 0%;
+    height: fit-content;
+}
+.data-box{
+    padding: 2rem;
+    padding-bottom: 4rem;
+    width: 40rem;
+    height: fit-content;
+    text-align: center;
+    margin: auto;
+    margin-top: 5rem;
+    background-color: rgb(193, 230, 231);
+}
+.btn{
+    background-color: rgb(223, 105, 84);
+    border-radius: 0.9rem;
+}

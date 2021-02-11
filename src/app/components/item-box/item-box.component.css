@@ -1,0 +1,27 @@
+.img_attr{
+    border-radius: 1rem;
+    height: 200px;
+    width: 100%;
+}
+.thumbnail{ 
+    margin: 5rem;
+    border-radius: 1rem;
+    border: 1px solid black;
+}
+@media only screen and (max-width:990px){
+    .img_attr{
+        height: 200px;
+        width:200px;
+    }
+}
+
+@media only screen and (max-width:540px){
+    .thumbnail{ 
+        margin: 0rem;
+        border: 1px solid black;
+    }
+    .img_attr{
+        height: 200px;
+        width:300px;
+    }
+}

@@ -1,0 +1,133 @@
+.heading-class{
+    margin: 1rem;
+    text-align: center;
+}
+.number-box{
+    padding: 1rem;
+    margin: 1rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 2rem;
+}.course-heading{
+    margin-top: 3.4rem;
+}
+.course-list{
+    margin-top: 1.8rem;
+    border-radius: 2rem;
+    padding-bottom: 1rem;
+    padding-top:1rem;
+    background-color: brown;
+}
+.course-item{
+    cursor: pointer;
+    margin: 1rem;
+    padding-left: 1rem;
+    padding-top:.5rem;
+    border: 1px solid white;
+    color: white;
+}
+.course-item:hover{
+    cursor: pointer;
+    margin: 1rem;
+    padding-left: 1rem;
+    padding-top:.5rem;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+.course-item-selected{
+    cursor: pointer;
+    margin: 1rem;
+    padding-left: 1rem;
+    padding-top:.5rem;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+}
+.position-right{
+    right: 2.5rem;
+    position:absolute;
+}
+.item-heading{
+    margin: 1rem;
+    text-align: center;
+}
+.bottom-border{
+    border-bottom:1px solid black ;
+}
+.subscribe-btn{
+    border-radius: 1rem;
+    background-color: chartreuse;
+}
+/*=============================== items ===============================*/
+
+
+/*=============================== items ===============================*/
+.name-band{
+    top: 100%;
+}
+
+/*================================== testing =============================*/
+.custom_overlay_wrapper { position: relative; }
+
+.custom_overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background-color: rgba(255, 255, 255, .9);
+	opacity: 0;
+	-webkit-transition: all 400ms ease-in-out;
+	-moz-transition: all 400ms ease-in-out;
+	-o-transition: all 400ms ease-in-out;
+	transition: all 400ms ease-in-out;
+}
+
+.custom_overlay:hover {
+	opacity: 1;
+}
+
+.custom_overlay_inner {
+	position: absolute;
+	top: 50%;
+	left: 10px;
+	right: 10px;
+  	transform: translateY(-50%);
+}
+
+.custom_overlay h4 {
+	position: relative;
+	margin-bottom: 4px;
+}
+
+.custom_overlay p { 
+	color: #000;
+	line-height: 1.4em;
+}
+
+.custom_overlay h4:after {
+	background-color: red;
+    content: "";
+	position: absolute;
+	left: 35%;
+	right: 35%;
+	bottom: 0;
+	height: 4px;
+}
+
+/*------------------- TABLET ------------------*/
+@media only screen and ( min-width: 600px ) and ( max-width: 999px ) {
+	.custom_overlay h4 { font-size: 80%;}
+	.custom_overlay p { 
+		font-size: 85%;
+		line-height: 1.2em;
+	}
+}
+
+/*------------------- MOBILE ------------------*/
+@media only screen and ( max-width: 599px ) {
+	.custom_overlay h4 { font-size: 100%;}
+	.custom_overlay p { font-size: 100%;}
+}

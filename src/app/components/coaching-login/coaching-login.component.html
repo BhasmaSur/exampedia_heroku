@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-12">
+            <div class="background-attr">
+                <form class="box">
+                    <h1>Login</h1>
+                    <p class="text-muted"> Please enter your Coaching Email and Password!</p>
+                    <input [(ngModel)]="coachingDetails.username" type="text" name="userName" placeholder="Username">
+                    <input [(ngModel)]="coachingDetails.password" type="password" name="password" placeholder="Password">
+                    <a class="forgot text-muted" href="#">Forgot password?</a>
+                    <input (click)="validateUser()" type="submit" name="" value="Login" href="#">
+                    <div class="col-12 col-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"
+                                        aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <a (click)="goToCoachingSignUpPage()" class="forgot text-muted">Not a member?<label class="signup-label">signup</label></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

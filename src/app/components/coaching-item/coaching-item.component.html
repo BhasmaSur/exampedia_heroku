@@ -1,0 +1,33 @@
+<div class="row" *ngIf="getResult('videos')">
+    <div class="col-lg-3 col-md-3 item-box p-0 m-0 text-center" *ngFor="let item of items">
+        <div class="thumbnail">
+            <img class="img_attr" [src]="displayPic" alt="" (click)="viewCoachingDetailClicked(item.videoId)">
+            <div class="caption">
+                <h3>{{item.videoName}}</h3>
+                <p>{{item.videoDescription}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="getResult('exams')">
+    <div class="col-lg-3 col-md-3 item-box p-0 m-0 text-center" *ngFor="let item of items">
+        <div class="thumbnail">
+            <img class="img_attr" [src]="displayPic" alt="" (click)="viewCoachingDetailClicked(item.examId)">
+            <div class="caption">
+                <h3>{{item.examName}}</h3>
+                <p>{{item.examDescription}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="getResult('pdfs')">
+    <div class="col-lg-3 col-md-3 item-box p-0 m-0 text-center" *ngFor="let item of items">
+        <div class="thumbnail">
+            <img class="img_attr" [src]="displayPic" alt="" (click)="viewCoachingDetailClicked(item.pdfId)">
+            <div class="caption">
+                <h3>{{item.pdfName}}</h3>
+                <p>{{item.pdfDescription}}</p>
+            </div>
+        </div>
+    </div>
+</div>

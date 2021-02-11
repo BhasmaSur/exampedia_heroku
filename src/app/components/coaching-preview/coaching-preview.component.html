@@ -1,0 +1,124 @@
+<div *ngIf="!isLoading">
+    <app-coaching-navbar (openLoginOrProfilePage)="openLoginProfile()" [user]=strLoggedInUser></app-coaching-navbar>
+    <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide>
+            <div class="custom_overlay_wrapper"><a><img [src]="displayPicUrl" height="500">
+                    <div class="custom_overlay"><span class="custom_overlay_inner">
+                            <h4>{{coachingDataToDisplay.coachingName}}</h4>
+                            <p>Welcomes You</p>
+                        </span></div>
+                </a></div>
+                
+        </ng-template>
+        <ng-template carouselSlide>
+            <img [src]="displayPicUrl" height="500">
+        </ng-template>
+    </owl-carousel-o>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-class">
+                    <h2>Our Stats</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="number-box">
+                    <h4>{{numberOfCourses}}</h4>
+                    <p>Courses</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="number-box">
+                    <h4>{{numberOfExams}}</h4>
+                    <p>Exams</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="number-box">
+                    <h4>{{numberOfSubscribers}}</h4>
+                    <p>Subscribers</p>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="number-box">
+                    <h4>{{strStars}}</h4>
+                    <p>Stars</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="heading-class">
+                    <h2>Explore Our Courses</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="col-12">
+                    <div class="course-heading">
+                        <h3>Courses</h3>
+                    </div>
+                </div>
+                <div class="course-list">
+                    <div class="course-item" *ngFor="let course of coachingDataToDisplay.coachingCourses;let i=index" (click)="selectCourseClicked(i)">
+                        <label *ngIf="!boolCourseNotAvaialable">{{course.courseName}}<i class="fa fa-chevron-right position-right" aria-hidden="true"></i></label>
+                    </div>
+                    <div class="course-item" *ngIf="boolCourseNotAvaialable">
+                        <label >Courses not available<i class="fa fa-chevron-right position-right" aria-hidden="true"></i></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="course-selected">
+                            <label>Course Selected :{{" "+courseSelected}}&nbsp;&nbsp;&nbsp;&nbsp;<button class="subscribe-btn" (click)="subscribeToCourse()">Subscribe</button></label>
+                        </div>
+                        <div class="item-heading">
+                            <h3>Videos</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <app-coaching-item [items]="videosToDisplay" (itemClicked)="navigateToVideoGallery($event)" typeOfItem="videos"></app-coaching-item>
+                    </div>
+                </div>
+                <div class="row bottom-border">
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="item-heading">
+                            <h3>Exams</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <app-coaching-item [items]="examsToDisplay" (itemClicked)="navigateToExamsGallery($event)" typeOfItem="exams"></app-coaching-item>
+                    </div>
+                </div>
+                <div class="row bottom-border">
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="item-heading">
+                            <h3>Pdfs</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <app-coaching-item [items]="pdfsToDisplay" (itemClicked)="navigateToPdfGallery($event)" typeOfItem="pdfs"></app-coaching-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-coaching-footer></app-coaching-footer>
+</div>
+<app-page-loading *ngIf="isLoading"></app-page-loading>
+

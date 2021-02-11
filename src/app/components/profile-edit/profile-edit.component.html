@@ -1,0 +1,250 @@
+<div class="container" *ngIf="!isLoading">
+    <div class="main-body">
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit User Profile</li>
+            </ol>
+        </nav>
+        <!-- /Breadcrumb -->
+
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img [src]="displayPicUrl" alt="Admin" class="rounded-circle dp-attr" width="150"
+                                (click)="OpenAddFilesDialog()">
+                            <input #FileSelectInputDialog class="hide-element" type="file"
+                                (change)="changeDP($event)" />
+                            <div class="mt-3">
+                                <h4>{{userDetailsToDisplay.userName}}</h4>
+                                About :&nbsp;<input class="editable-input" type="text" class="text-secondary mb-1"
+                                    [(ngModel)]="userDetailsToDisplay.proffession"><br>
+                                Bio :&nbsp;<input class="editable-input" type="text" class="text-secondary mb-1"
+                                    [(ngModel)]="userDetailsToDisplay.biodata">
+                                <button class="btn btn-primary" (click)="saveAndGoToUserProfile()">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Courses
+                                Subscribed</h6>
+                            <span class="text-secondary">NaN</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><i class="fa fa-percent" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Courses
+                                Completed</h6>
+                            <span class="text-secondary">NaN</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><i class="fa fa-clipboard" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Exams
+                                Given</h6>
+                            <span class="text-secondary">NaN</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><i class="fa fa-line-chart" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Exams
+                                Remaining</h6>
+                            <span class="text-secondary">NaN</span>
+                        </li>
+                        <!--<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round"
+                                    class="feather feather-facebook mr-2 icon-inline text-primary">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>Facebook</h6>
+                            <span class="text-secondary">bootdey</span>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Full Name</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class="editable-input" type="text" [(ngModel)]="userDetailsToDisplay.userName">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                {{userDetailsToDisplay.email}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Age</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class="editable-input" type="text" [(ngModel)]="userDetailsToDisplay.age">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Mobile</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class="editable-input" type="text" [(ngModel)]="userDetailsToDisplay.mobile">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Address</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input class="editable-input" type="text" [(ngModel)]="userDetailsToDisplay.address">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutters-sm">
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="d-flex align-items-center mb-3">
+                                    <!-- <i class="material-icons text-info mr-2">Courses Subscribed :</i> -->
+                                    Courses Subscribed :
+                                </h3>
+                                <div *ngIf="!boolCoursesNotSubscribed" class="course-box">
+                                    <div class="course-box">
+                                        <div class="course-tags">
+                                            <button class="btn btn-sm" type="button"
+                                                *ngFor="let course of userDetailsToDisplay.coursesSubscribed">
+                                                {{course.courseName}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small *ngIf="boolCoursesNotSubscribed">You have not subscribed to any
+                                        Course</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="d-flex align-items-center mb-3">
+                                    <!-- <i class="material-icons text-info mr-2">Exams Subscribed :</i> -->
+                                    Exams Subscribed :
+                                </h3>
+                                <div *ngIf="!boolExamsNotSubscribed" class="course-box">
+                                    <div class="course-box">
+                                        <div class="course-tags">
+                                            <button class="btn btn-sm" type="button"
+                                                *ngFor="let exam of examsSubscribedDetails">
+                                                {{exam.examName}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small *ngIf="boolCoursesNotSubscribed">You have not subscribed to any
+                                        Course</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutters-sm">
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="d-flex align-items-center mb-3">
+                                    <!-- <i class="material-icons text-info mr-2">Preference Courses :</i> -->
+                                    Preference Courses :
+                                </h3>
+                                <div *ngIf="!boolCoursesNotSubscribed" class="course-box">
+                                    <div class="course-box">
+                                        <div class="course-tags">
+                                            <button (click)="removeCourseTag(course)" class="btn btn-sm" type="button"
+                                                *ngFor="let course of preferenceCourses">
+                                                {{course}}&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search-bar">
+                                    <app-search-bar val="Search Course" (click)="showListOfCourses()"
+                                    (onValueChanged)="filterCoursesForInput($event)"></app-search-bar>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 offset-2">
+                                        <div class="available-courses" *ngIf="boolShowCourseList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item" (click)="removeSearchList()">None</li>
+                                                <li class="list-group-item" (click)="addIntoPreferenceCourses(course)"
+                                                    *ngFor="let course of listOfCoursesToDislay">{{course}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small *ngIf="boolCoursesNotSubscribed">You have not subscribed to any
+                                        Course</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="d-flex align-items-center mb-3">
+                                    <!-- <i class="material-icons text-info mr-2">Preference Exams :</i> -->
+                                    Preference Exams :
+                                </h3>
+                                <div *ngIf="!boolExamsNotSubscribed" class="course-box">
+                                    <div class="course-box">
+                                        <div class="course-tags">
+                                            <button (click)="removeExamTag(exam)" class="btn btn-sm" type="button"
+                                                *ngFor="let exam of preferenceExams">
+                                                {{exam}}&nbsp;<i class="fa fa-times-circle" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="search-bar">
+                                    <app-search-bar class="search-bar" val="Search Exam" (click)="showListOfExams()"
+                                    (onValueChanged)="filterExamsForInput($event)"></app-search-bar>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 offset-2">
+                                        <div class="available-courses" *ngIf="boolShowExamList">
+                                            <ul class="list-group">
+                                                <li class="list-group-item" (click)="removeSearchList()">None</li>
+                                                <li class="list-group-item" (click)="addIntoPreferenceExams(exam)"
+                                                    *ngFor="let exam of listOfExamsToDislay">{{exam}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small *ngIf="boolCoursesNotSubscribed">You have not subscribed to any
+                                        Course</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-page-loading *ngIf="isLoading"></app-page-loading>

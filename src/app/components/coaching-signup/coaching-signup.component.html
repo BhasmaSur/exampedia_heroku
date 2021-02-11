@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-12">
+            <div class="background-attr">
+                <form [formGroup]="form" class="box">
+                    <h1>Login</h1>
+                    <p class="text-muted"> Please enter your Coaching Email and Password!</p>
+                    <input formControlName="coachingName" type="text" name="userName" placeholder="Coaching Name">
+                    <input formControlName="coachingOwner" type="text" name="userName" placeholder="Coaching Owner">
+                    <input formControlName="coachingEmail" type="text" name="userName" placeholder="Coaching Email">
+                    <input formControlName="coachingPassword" type="password" name="password" placeholder="Password">
+                    <input formControlName="coachingConfirmPassword" type="password" name="password" placeholder="Confirm Password">
+                    <input (click)="validateUser()" type="submit" name="" value="Sign Up" href="#">
+                    <div class="col-12 col-12">
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"
+                                        aria-hidden="true"></i></a></li>
+                            <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-google-plus"
+                                        aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <a (click)="goToCoachingLoginPage()" class="forgot text-muted">already a member?<label class="signup-label">login</label></a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

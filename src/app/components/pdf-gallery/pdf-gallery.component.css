@@ -1,0 +1,34 @@
+.no-gutter{
+    margin: 0%;
+    padding: 0%;
+}
+.menu-container{
+    margin-top: 3.3rem;
+    border: .2rem black solid;
+}
+.menu-heading{
+    text-align: center;
+    background-color: cornflowerblue;
+}
+.item-button{
+    margin: .1rem;
+}
+.img_attr{
+    border-radius: .3rem;
+    height: 3rem;
+    width: 4rem;
+}
+.thumbnail{ 
+    margin: 1rem;
+}
+.description-box{
+    margin-left: 2rem;
+}
+.pdf-container{
+    margin-left: 2rem;
+    margin-top: 1rem;
+    border: 1px solid black;
+}
+.pdf-heading{
+    margin-left: 2rem;
+}
