@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //apiUrl:"https://exampediaapi-1609247825968.azurewebsites.net"
-  apiUrl:"http://localhost:8080"
+  apiUrl:"https://exampediaapi.herokuapp.com/"
 };
 
 /*
