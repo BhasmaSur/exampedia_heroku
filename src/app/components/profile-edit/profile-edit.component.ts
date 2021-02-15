@@ -106,7 +106,7 @@ export class ProfileEditComponent implements OnInit {
   // ====================== XXXX ==================================================
   //======================== Logout functions =====================================
   logoutUser() {
-    this.authService.logoutUserLoggedIn()
+    this.authService.logoutUserLoggedIn("user")
   }
   //========================== XXXXX ==============================================
   //====================== Editing functions ====================================

@@ -16,10 +16,11 @@ export class ExamPaperComponent implements OnInit {
   //================== common paper =========================================================
   @ViewChild('cd', { static: true }) private countdown!: CountdownComponent;
   examTime={
-    leftTime: 10,
+    leftTime: 100,
     notify: [ 1 ],
     demand:true
   }
+  questionIndex=1;
   questions:any = [];
   answers:any;
   tempAnswer:any;
@@ -50,6 +51,7 @@ export class ExamPaperComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
+    this.authService.getUserLoggedInFromStorage();
     let examID=this.route.snapshot.params['examIndex'];
     this.storageService.get(ConfigurationsFile.COURSE_EXAM_IN_GALLERY).then(examsArray=>{
       if(examsArray){
@@ -76,7 +78,18 @@ export class ExamPaperComponent implements OnInit {
   examOver(event:any){
     //console.log(event);
     if(event.action=="done"){
-      this.router.navigate(['exam-over']);
+      this.authService.loggedInUserData$.subscribe((userRet:any)=>{
+        if(userRet){
+          console.log(userRet);
+          if(userRet.roles=="COACHING"){
+            this.router.navigate(['coaching-preview']);
+          }
+          else{
+            this.router.navigate(['exam-over']);
+          }
+        }
+      })
+      
     }
     
   }
@@ -132,6 +145,12 @@ export class ExamPaperComponent implements OnInit {
     for(let i=0;i< this.allExamsInCourse.length;i++){
       if(this.allExamsInCourse[i].examId==index){
         this.examToStart=this.allExamsInCourse[i];
+       // this.examTime.leftTime=parseInt(this.examToStart.examTime);
+        this.examTime={
+          leftTime: parseInt(this.examToStart.examTime),
+          notify: [ 1 ],
+          demand:true
+        }
       }
     } 
   }

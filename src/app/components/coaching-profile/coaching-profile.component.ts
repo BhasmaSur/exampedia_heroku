@@ -62,6 +62,7 @@ export class CoachingProfileComponent implements OnInit {
   };
   subscribeToCourse() {
     console.log("working");
+    alert("request to subscribe is sent to the coaching admin");
   }
   selectCourseClicked(index: any) {
     this.courseSelected = this.coachingDataToDisplay.coachingCourses[index].courseName;
@@ -83,7 +84,7 @@ export class CoachingProfileComponent implements OnInit {
     //console.log(id);
     this.authService.getUserLoggedInFromStorage().then(userDetails => {
       if (userDetails) {
-        //console.log(userDetails);
+        console.log("user logged in :",userDetails);
         this.strLoggedInUser = userDetails.userName;
         this.boolUserLoggedIn = true;
         this.userLoggedInRole = userDetails.roles;
@@ -94,7 +95,7 @@ export class CoachingProfileComponent implements OnInit {
         for (let iCoaching = 0; iCoaching < coachings.length; iCoaching++) {
           if (coachings[iCoaching].coachingId == id) {
             this.coachingDataToDisplay = coachings[iCoaching];
-            //console.log(iCoaching,this.coachingDataToDisplay);
+            console.log(iCoaching,this.coachingDataToDisplay);
             this.initialiseCoachingVaribales();
             this.initialiseCoachingDp();
             this.isLoading = false;
@@ -189,6 +190,7 @@ export class CoachingProfileComponent implements OnInit {
   //============================= XXXXXX ==========================================
   //================================= pdfs =========================================
   navigateToPdfGallery(id: any) {
+    console.log(this.pdfsToDisplay);
     this.storageService.store(ConfigurationsFile.COURSE_PDFS_IN_GALLERY, this.pdfsToDisplay).then(res => {
       if (res) {
         this.router.navigate(['pdf-gallery', { pdfIndex: id }]);

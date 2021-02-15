@@ -80,6 +80,7 @@ export class CoachingEditComponent implements OnInit {
           this.strLoggedInUser="Logout";
           this.boolUserLoggedIn=true;
           this.coachingDataToDisplay=coachingDetails;
+          this.coachingId=coachingDetails.coachingid;
           console.log("coaching logged in :\n",this.coachingDataToDisplay);
           this.initialiseCoachingVaribales();
           this.initialiseCoachingDp();
@@ -197,7 +198,11 @@ export class CoachingEditComponent implements OnInit {
   //=============================== XXXXXXXXXXX ===============================
   //=============================== Add Videos to the course =================
   addVideoToTheCourse(){
-    console.log("add course");
+    this.storageService.store(ConfigurationsFile.COACHING_COURSE_IN_FOCUS,this.coachingDataToDisplay.coachingCourses[this.indexOfCourseSelected]).then(res=>{
+      if(res){
+        this.router.navigate(['add-video',{id:this.coachingId}]);
+      }
+    })
   }
   //================================ XXXXXXXXX ==============================
   //=============================== Add Exams to the course ==================
@@ -212,7 +217,12 @@ export class CoachingEditComponent implements OnInit {
   //=============================== XXXXXXXXX ==============================
   //============================== Add Pdfs to the course ================
   addPdfToTheCourse(){
-    console.log("add pdf");
+    // console.log("add pdf");
+    this.storageService.store(ConfigurationsFile.COACHING_COURSE_IN_FOCUS,this.coachingDataToDisplay.coachingCourses[this.indexOfCourseSelected]).then(res=>{
+      if(res){
+        this.router.navigate(['add-pdf',{id:this.coachingId}]);
+      }
+    })
   }
   //============================ XXXXXXX ==================================
   //======================== ADD course into coaching ======================
@@ -224,7 +234,9 @@ export class CoachingEditComponent implements OnInit {
     console.log("data sending to the server",this.coachingDataToDisplay);
     this.authService.updateCoachingData(this.coachingDataToDisplay).subscribe((res:any)=>{
       if(res){
-        console.log(res);
+        //console.log(res);
+        alert("coaching updated successfully");
+        this.authService.storeCoachingDataIntoStorage(res);
       }
     })
   }

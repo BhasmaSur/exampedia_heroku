@@ -125,7 +125,8 @@ export class AddExamComponent implements OnInit {
    this.authService.uploadQuestionsToTheServer(this.questionArray).subscribe(questionRes=>{
     if(questionRes){
       //console.log(questionRes);
-      this.router.navigate(['success',{id:this.coachingId}]);
+      alert("Exam added successfully");
+      this.router.navigate(['coaching-edit']);
     }
   })
   }

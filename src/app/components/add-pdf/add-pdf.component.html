@@ -1,1 +1,43 @@
-<p>add-pdf works!</p>
+<div class="form-box" *ngIf="!isLoading">
+    <form [formGroup]="form" class="normal-form">
+        <mat-grid-list cols="2" rowHeight="100px" colWidth="200px">
+            <mat-grid-tile colspan="2" rowspan="1">
+               <h1>Add Pdf</h1>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Pdf Name</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="pdfName">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1" >
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Pdf Description</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="pdfDescription">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <mat-form-field appearance="outline" style="width:90%">
+                    <mat-label>Pdf Subjects</mat-label>
+                    <input matInput placeholder="Placeholder" class="input-box" formControlName="pdfSubjects">
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+               <div class="upload-box">
+                <label for="file">Choose File</label>
+                <input type="file"
+                       id="file"
+                       (change)="handleFileInput($event)">
+               </div>
+            </mat-grid-tile>
+            <mat-grid-tile colspan="2" rowspan="1">
+                <div class="submit-btn-box">
+                    <button  mat-raised-button color="accent" (click)="submitPdfForm()">Submit</button>
+                </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </form>
+</div>
+<div *ngIf="isLoading">
+
+</div>

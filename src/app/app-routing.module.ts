@@ -23,14 +23,16 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { UserGuardGuard } from './guards/user-guard.guard';
 import { CoachingProfileGuardGuard } from './guards/coaching-profile-guard.guard';
 import { CoachingPreviewComponent } from './components/coaching-preview/coaching-preview.component';
+import { AddPdfComponent } from './components/add-pdf/add-pdf.component';
+import { AddVideoComponent } from './components/add-video/add-video.component';
 
 const routes: Routes = [
   {
     path:'',
-    component: TestComponent,
-    // resolve:{
-    //   coaching:coachingsResolver
-    // }
+    component: WelcomeComponent,
+    resolve:{
+      coaching:coachingsResolver
+    }
   },
   {
     path:'pdf-gallery',
@@ -119,6 +121,16 @@ const routes: Routes = [
   {
     path:'add-course',
     component: AddCourseComponent,
+    canActivate:[CoachingProfileGuardGuard]
+  },
+  {
+    path:'add-pdf',
+    component: AddPdfComponent,
+    canActivate:[CoachingProfileGuardGuard]
+  },
+  {
+    path:'add-video',
+    component: AddVideoComponent,
     canActivate:[CoachingProfileGuardGuard]
   },
   {

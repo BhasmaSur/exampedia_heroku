@@ -51,9 +51,21 @@ export class AuthServiceService {
   }
   logoutCoachingAdminLoggedIn(){
     this.storageService.removeItem(ConfigurationsFile.COACHING_ADMIN_LOGGED_IN).then(res=>{
-         this.logoutUserLoggedIn();
+         this.logoutUserLoggedIn("coaching");
         this.loggedInCoachingData$.next('');
-        this.router.navigate(['']);
+    })
+    .then(()=>{
+      this.storageService.removeItem(ConfigurationsFile.COURSE_PDFS_IN_GALLERY);
+    })
+    .then(()=>{
+      this.storageService.removeItem(ConfigurationsFile.COURSE_VIDEO_IN_GALLERY);
+    })
+    .then(()=>{
+      this.storageService.removeItem(ConfigurationsFile.COURSE_EXAM_IN_GALLERY);
+      this.router.navigate(['coaching-login']);
+    })
+    .then(()=>{
+      this.storageService.clear();
     })
   }
   uploadCoachingDp(uploadImageData:any){
@@ -104,10 +116,12 @@ export class AuthServiceService {
     console.log(bearerToken);
     return this.httpService.getAuthHeaderCall('/user',bearerToken);
   }
-  logoutUserLoggedIn(){
+  logoutUserLoggedIn(type:any){
     this.storageService.removeItem(ConfigurationsFile.LOGGED_IN_USER).then(res=>{
         this.loggedInUserData$.next('');
-        this.router.navigate(['']);
+        if(type=="user"){
+          this.router.navigate(['']);
+        }
     })
   }
   updateUserLoggedInToTheServer(userDetails:any){
@@ -190,6 +204,20 @@ export class AuthServiceService {
     return this.httpService.putCall('/questions-update',questionData,bearerToken);
   }
   //==================== XXX ==================================================
+  //=================== pdfs ==================================================
+  uploadPdfToServer(pdfData:any){
+    let jwt=this.cookieService.getCookie("jwt");
+    let bearerToken="Bearer "+jwt.jwt;
+    return this.httpService.putCall('/pdf-update',pdfData,bearerToken);
+  }
+  //=================== XXXX ==================================================
+   //=================== videos ==================================================
+   uploadVideoToServer(videoData:any){
+    let jwt=this.cookieService.getCookie("jwt");
+    let bearerToken="Bearer "+jwt.jwt;
+    return this.httpService.putCall('/video-update',videoData,bearerToken);
+  }
+  //=================== XXXX ==================================================
 }
 
 

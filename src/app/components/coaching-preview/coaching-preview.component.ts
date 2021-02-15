@@ -62,7 +62,7 @@ emptyCourse:any={
   courseName:"No Course Added"
 };
 subscribeToCourse(){
-  console.log("working");
+  console.log("users subscribed to this course");
 }
 selectCourseClicked(index:any){
   this.courseSelected=this.coachingDataToDisplay.coachingCourses[index].courseName;
@@ -156,6 +156,7 @@ strLoggedInUser:any="LOGIN";
     }
    
   }
+  
   //=============================== Login ==========================================
   openLoginProfile(){
     if(this.boolUserLoggedIn){

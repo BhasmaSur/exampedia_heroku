@@ -20,7 +20,7 @@
 <div class="question-box" *ngIf="!isLoading">
   <form [formGroup]="questionForm">
     <div class="question-statement">
-      <label>{{"Question : "+focusedQuestion.statement}}</label>
+      <label>{{"Question "+(indexInFocus+1) +" : "+focusedQuestion.statement}}</label>
       <label class="float-right">{{focusedQuestion.marks}}</label>
     </div>
 

@@ -32,12 +32,12 @@ export class CoachingLoginComponent implements OnInit {
           this.cookieService.setCookie("jwt",token);
           this.authService.getUserDetails().subscribe(coachingUserDetails=>{
             if(coachingUserDetails){
-              console.log("coaching user details ","coaching-login page ",coachingUserDetails);
+              // console.log("coaching user details ","coaching-login page ",coachingUserDetails);
               this.storageService.store(ConfigurationsFile.LOGGED_IN_USER,coachingUserDetails).then(res=>{
                 if(res){
                   this.authService.getCoachingDetails().subscribe((coachingAdminData:any)=>{
                     if(coachingAdminData){
-                      console.log("coaching returened from data base ","coaching-login page ",coachingAdminData);
+                      // console.log("coaching returened from data base ","coaching-login page ",coachingAdminData);
                       this.storageService.store(ConfigurationsFile.COACHING_ADMIN_LOGGED_IN,coachingAdminData).then(resC=>{
                         if(resC){
                           this.authService.getUserLoggedInFromStorage();

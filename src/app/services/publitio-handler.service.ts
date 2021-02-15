@@ -19,9 +19,9 @@ export class PublitioHandlerService {
       })
       .catch(error => { console.log(error) })
   }
-  getFile(postData:any): Promise<any> {
+  getFile(fileId:any): Promise<any> {
     const publitio = new PublitioAPI(this.API_KEY, this.API_SECRET);
-    return publitio.call('/files/show/' + postData.file_name, 'GET')
+    return publitio.call('/files/show/' + fileId, 'GET')
       .then(response => {
         console.log(response);
         return response;
@@ -67,11 +67,11 @@ export class PublitioHandlerService {
       .then((data) => { console.log(data); return data })
       .catch((error) => { console.log(error) })
   }
-  createFolder(postData: any): Promise<any> {
+  createFolder(folderName: any): Promise<any> {
     const publitio = new PublitioAPI(this.API_KEY, this.API_SECRET);
     // Create a new folder, with options name=MyFolder, parent_id=4vZsZBGa
     return publitio.call('/folders/create', 'POST', {
-      name: postData.coachingName
+      name: folderName
     }).then((data) => { console.log(data); return data })
       .catch((error) => { console.log(error) })
   }

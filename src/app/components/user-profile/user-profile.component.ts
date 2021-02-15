@@ -119,7 +119,7 @@ export class UserProfileComponent implements OnInit {
   // ====================== XXXX ==================================================
   //======================== Logout functions =====================================
   logoutUser() {
-    this.authService.logoutUserLoggedIn()
+    this.authService.logoutUserLoggedIn("user");
   }
   //========================== XXXXX ==============================================
 }
