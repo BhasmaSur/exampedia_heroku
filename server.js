@@ -15,7 +15,7 @@ app.use(express.static('./dist/exampedia'));
 //     res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
 // );
 app.get('/*', (req, res) =>
-    res.sendFile('index.html', {root: 'dist/angular-app-heroku/'}),
+    res.sendFile('index.html', {root: 'dist/exampedia/'}),
 );
 
 //app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
